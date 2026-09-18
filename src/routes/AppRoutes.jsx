@@ -4,6 +4,7 @@ import MainLayout from '@/components/layout/MainLayout'
 import HomePage from '@/pages/home/HomePage'
 import ShopPage from '@/pages/shop/ShopPage'
 import ProductPage from '@/pages/product-detail/ProductPage'
+import BlogPage from '@/pages/blog/BlogPage'
 import PagePlaceholder from '@/pages/common/PagePlaceholder'
 
 import { ROUTES } from './routes'
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.CART, element: <PagePlaceholder title="Cart" /> },
       { path: ROUTES.CHECKOUT, element: <PagePlaceholder title="Checkout" /> },
       { path: ROUTES.ACCOUNT, element: <PagePlaceholder title="Account" /> },
-      { path: ROUTES.BLOG, element: <PagePlaceholder title="Blog" /> },
+      { path: ROUTES.BLOG, element: <BlogPage /> },
       { path: ROUTES.OUR_STORY, element: <PagePlaceholder title="Our Story" /> },
       { path: ROUTES.CONTACT, element: <PagePlaceholder title="Contact" /> },
       { path: '*', element: <PagePlaceholder title="404" /> },
