@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+
+/*
+ * Дизайн-токены SHOPPE (приблизительно со скринов — уточнить когда будет ссылка на Figma).
+ * Используй как обычные классы Tailwind: bg-ink, text-gold, border-line, font-display ...
+ * НЕ пиши хардкод-цвета в компонентах — добавь токен сюда.
+ */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', ui-serif, serif;
+
+  --color-ink: #1a1a1a; /* основной текст, заголовки */
+  --color-muted: #8c8c86; /* второстепенный текст */
+  --color-gold: #ad8b5e; /* цены, акценты */
+  --color-line: #e7e5e0; /* тонкие бордеры */
+  --color-surface: #f2f1ed; /* фон плейсхолдеров/hero */
+
+  --breakpoint-3xl: 90rem; /* 1440px */
+}
+
+:root {
+  --page-x: 20px;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --page-x: 40px;
+  }
+}
+
+@media (width >= 80rem) {
+  :root {
+    --page-x: 80px;
+  }
+}
+
+@utility px-page {
+  padding-inline: var(--page-x);
+}
+
+@layer base {
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
