@@ -1,7 +1,8 @@
+import { ROUTES, getProductPath } from '@/routes/routes'
+
 import lira from '@/assets/images/lira-earrings.jpg'
 import hal from '@/assets/images/hal-earrings.jpg'
 import kaedeHairPin from '@/assets/images/kaede-hair-pin-set.jpg'
-import hairPinSet from '@/assets/images/hair-pin-set.jpg'
 import plaineNecklace from '@/assets/images/plaine-necklace.jpg'
 import yukiHairPin from '@/assets/images/yuki-hair-pin-set.jpg'
 import heroGoldHoops from '@/assets/images/hero-gold-hoops.jpg'
@@ -9,7 +10,10 @@ import heroGoldHoops from '@/assets/images/hero-gold-hoops.jpg'
 /*
  * Моковые данные товаров (имена, цены и фото — вырезаны из скринов Figma
  * пользователя). У Ollie Earrings нет отдельного фото в макете — используем
- * то же, что у Hal Earrings (так в исходном макете).
+ * то же, что у Hal Earrings (так в исходном макете). Фото Hair Pin Set of 3
+ * на скрине было в hover-состоянии (иконки корзина/глаз/сердце впечатаны в
+ * кадр без возможности чистого кропа) — временно показываем фото Yuki Hair
+ * Pin Set (похожая категория), пока не появится чистый экспорт.
  */
 export const PRODUCTS = [
   {
@@ -35,9 +39,7 @@ export const PRODUCTS = [
     id: 'hair-pin-set',
     name: 'Hair Pin Set of 3',
     price: 30,
-    // На скрине это фото было снято в hover-состоянии (видны иконки корзина/глаз/сердце) —
-    // чистой версии не было, стоит заменить, когда появится.
-    image: hairPinSet,
+    image: yukiHairPin,
   },
   {
     id: 'plaine-necklace',
@@ -68,3 +70,15 @@ export const HERO_PRODUCT = {
 }
 
 export const getProductById = (id) => PRODUCTS.find((product) => product.id === id)
+
+/*
+ * Слайды Hero-карусели: промо-товар (без своей страницы — ведёт в каталог)
+ * + несколько реальных товаров (ведут на свою страницу товара).
+ */
+export const HERO_SLIDES = [
+  { ...HERO_PRODUCT, to: ROUTES.SHOP },
+  ...['lira-earrings', 'hal-earrings', 'kaede-hair-pin-set', 'yuki-hair-pin-set'].map((id) => {
+    const product = getProductById(id)
+    return { ...product, to: getProductPath(product.id) }
+  }),
+]

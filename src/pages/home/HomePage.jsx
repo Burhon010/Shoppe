@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import ProductCard from '@/components/shop/ProductCard'
-import { HERO_PRODUCT, PRODUCTS } from '@/data/products'
+import { HERO_SLIDES, PRODUCTS } from '@/data/products'
 import { ROUTES } from '@/routes/routes'
 
 import Hero from './Hero'
@@ -10,7 +10,7 @@ import Hero from './Hero'
 export default function HomePage() {
   return (
     <>
-      <Hero product={HERO_PRODUCT} />
+      <Hero slides={HERO_SLIDES} />
 
       <section className="mx-auto max-w-[1440px] px-page py-16 md:py-24">
         <div className="flex items-end justify-between">
