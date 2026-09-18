@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+/* Шрифты подключены через <link> в index.html — @import здесь ловил CSS-варнинг про порядок */
 
 /*
  * Дизайн-токены SHOPPE (приблизительно со скринов — уточнить когда будет ссылка на Figma).
