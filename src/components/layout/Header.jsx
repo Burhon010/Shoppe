@@ -4,6 +4,7 @@ import { useCart } from '@/hooks/useCart'
 import { cn } from '@/lib/cn'
 import { ROUTES } from '@/routes/routes'
 
+import ThemeToggle from '../ui/ThemeToggle'
 import { CartIcon, SearchIcon, UserIcon } from '../ui/icons'
 
 const NAV = [
@@ -44,6 +45,8 @@ export default function Header() {
 
         <div className="flex items-center gap-6">
           <span className="hidden h-5 w-px bg-line md:block" aria-hidden="true" />
+
+          <ThemeToggle />
 
           <button type="button" aria-label="Поиск" className="transition-colors hover:text-gold">
             <SearchIcon className="size-5" />
