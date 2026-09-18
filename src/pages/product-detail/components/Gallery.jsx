@@ -9,7 +9,7 @@ export default function Gallery({ image, name }) {
   const thumbs = Array.from({ length: 4 })
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col-reverse gap-4 md:flex-row">
       <div className="flex flex-row gap-3 md:flex-col">
         {thumbs.map((_, i) => (
           <button
@@ -18,7 +18,7 @@ export default function Gallery({ image, name }) {
             aria-label={`Фото ${i + 1}`}
             onClick={() => setActive(i)}
             className={cn(
-              'size-20 shrink-0 overflow-hidden bg-surface',
+              'size-16 shrink-0 overflow-hidden bg-surface md:size-20',
               active === i && 'ring-1 ring-ink',
             )}
           >
@@ -33,7 +33,7 @@ export default function Gallery({ image, name }) {
         ))}
       </div>
 
-      <div className="aspect-square w-full flex-1 bg-surface">
+      <div className="aspect-square w-full min-w-0 flex-1 bg-surface">
         {image ? (
           <img src={image} alt={name} className="size-full object-cover" />
         ) : (

@@ -57,9 +57,11 @@ export default function ProductPage() {
 
       <div className="mx-auto max-w-[1440px] px-page py-16">
         <div className="grid gap-12 md:grid-cols-2">
-          <Gallery image={product.image} name={product.name} />
+          <div className="min-w-0">
+            <Gallery image={product.image} name={product.name} />
+          </div>
 
-          <div>
+          <div className="min-w-0">
             <h1 className="font-display text-2xl">{product.name}</h1>
             <p className="mt-2 text-gold">{formatPrice(product.price)}</p>
 
