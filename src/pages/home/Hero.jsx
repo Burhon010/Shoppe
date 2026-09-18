@@ -7,7 +7,7 @@ import { getProductPath } from '@/routes/routes'
 // Промо-баннер с точками-пагинацией. Figma: Home — Hero.
 // TODO: слайды — сейчас один статичный слайд (HERO_PRODUCT), точки декоративные.
 export default function Hero({ product }) {
-  const [slide, setSlide] = useState(0)
+  const [, setSlide] = useState(0)
   const slidesCount = 5
 
   return (
@@ -36,9 +36,9 @@ export default function Hero({ product }) {
             aria-label={`Слайд ${i + 1}`}
             onClick={() => setSlide(i)}
             className={
-              i === slide
-                ? 'size-2 rounded-full bg-white'
-                : 'size-2 rounded-full border border-white'
+              // Figma: первая точка контурная, остальные залиты — статичный визуал,
+              // т.к. реального слайдера ещё нет (см. TODO выше)
+              i === 0 ? 'size-2 rounded-full border border-white' : 'size-2 rounded-full bg-white'
             }
           />
         ))}
